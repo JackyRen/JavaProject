@@ -3,6 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/gps"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gps" />
+    <TextView
+        android:id="@+id/temp2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/temp2" />
+    <TextView
+        android:id="@+id/wifi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi" />
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/time" />
+    <Button  
+        android:id="@+id/takephoto"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="@string/takephoto"  />  
+    <ImageView   
+        android:id="@+id/imageView"  
+        android:layout_width="wrap_content"  
+        android:layout_height="200dp"
+        android:src="@drawable/android"  
+     />  
     <Button android:id="@+id/send"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"

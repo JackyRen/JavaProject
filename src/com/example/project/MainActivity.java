@@ -44,9 +44,12 @@ public class MainActivity extends Activity {
 	private TextView wind;
 	private Button settings;
 	private Button record;
+	private Button share;
+	private Button check;
 	private String user = "";
 	private String pass = "";
 	private String server = "";
+	private String temperature = "";
 	private final int SETTING_CODE = 1;
 	private int id = 3;
 	//String imageUrl = "http://l.yimg.com/a/i/us/we/52/32.gif";
@@ -72,6 +75,41 @@ public class MainActivity extends Activity {
 		weather = (TextView)findViewById(R.id.weather);
 		temp = (TextView)findViewById(R.id.temp);
 		wind = (TextView)findViewById(R.id.wind);
+		check = (Button)findViewById(R.id.check);
+		check.setOnClickListener(new Button.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent intent=new Intent();
+	    		intent.setClass(MainActivity.this,Check.class);
+	    		//Bundle bundle=new Bundle();
+	    		//intent.putExtras(bundle);
+	    		startActivity(intent);
+			}
+			
+		});
+		share = (Button)findViewById(R.id.share);
+		share.setOnClickListener(new Button.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent intent=new Intent();
+	    		intent.setClass(MainActivity.this,Share.class);
+	    		Bundle bundle=new Bundle();
+	    		if (city.getText().toString().equals(new String("No Internet"))){
+	    			bundle.putString("HASINTERNET", "NO");
+	    		}
+	    		else{
+	    			bundle.putString("HASINTERNET", "YES");
+	    		}
+	    		bundle.putString("CITY", city.getText().toString());
+	    		bundle.putString("WEATHER", weather.getText().toString());
+	    		bundle.putString("TEMP", temp.getText().toString());
+	    		intent.putExtras(bundle);
+	    		startActivity(intent);
+			}
+			
+		});
 		settings = (Button)findViewById(R.id.settings);
 		settings.setOnClickListener(new Button.OnClickListener(){
 
@@ -96,8 +134,9 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent=new Intent();
 	    		intent.setClass(MainActivity.this,Record.class);
-	    		//Bundle bundle=new Bundle();
-	    		//intent.putExtras(bundle);
+	    		Bundle bundle=new Bundle();
+	    		bundle.putString("temp", temperature);
+	    		intent.putExtras(bundle);
 	    		//startActivityForResult(intent, SETTING_CODE);
 	    		startActivity(intent);
 			}
@@ -197,6 +236,13 @@ public class MainActivity extends Activity {
 			t += h + "¡æ";
 		}
 		temp.setText(t);
+		p = Pattern.compile("temp=\"[^\"]+");
+		m = p.matcher(xml);
+		if (m.find()){
+			temperature = m.group();
+			temperature = temperature.replaceAll("temp=\"", "");
+			temperature += "¡æ";
+		}
 	}
 	
 	public Bitmap returnBitMap(String url) {    

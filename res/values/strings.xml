@@ -26,5 +26,15 @@
     <string name="a4">No Alarm</string>
     <string name="Record">Record</string>
     <string name="send">Send</string>
+    <string name="time">Time : </string>
+    <string name="gps">GPS : </string>
+    <string name="wifi">WIFI : </string>
+    <string name="temp2">Temperature : </string>
+    <string name="takephoto">Take photo</string>
+    <string name="Share">Share</string>
+    <string name="wechat">Share to Wechat</string>
+    <string name="friend">Share to Moments</string>
+    <string name="Check">Check</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

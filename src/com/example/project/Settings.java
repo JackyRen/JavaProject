@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,11 +20,13 @@ public class Settings extends Activity{
 	private EditText pass;
 	private EditText server;
 	private Button confirm;
+	private Button cancel;
 	//private Button open;
 	//private Button close;
 	private RadioGroup alarmgroup; 
 	private RadioButton alarmbut[] = new RadioButton[4];
 	private int id = 3;
+	//SharedPreferences sp; 
 	@Override
 	public void onCreate(Bundle bundle){
 		super.onCreate(bundle);
@@ -35,16 +38,37 @@ public class Settings extends Activity{
 		alarmbut[1] = (RadioButton)findViewById(R.id.alarm2);
 		alarmbut[2] = (RadioButton)findViewById(R.id.alarm3);
 		alarmbut[3] = (RadioButton)findViewById(R.id.alarm4);
-		Bundle getBundle = getIntent().getExtras();
-		user.setText(getBundle.getString("USER"));
-		pass.setText(getBundle.getString("PASS"));
-		server.setText(getBundle.getString("SERVER"));
-		id = Integer.valueOf(getBundle.getString("ID"));
+		//Bundle getBundle = getIntent().getExtras();
+		try{
+		SharedPreferences sharedata = getSharedPreferences("data", 0);  
+		user.setText(sharedata.getString("USER",null));
+		pass.setText(sharedata.getString("PASS",null));
+		server.setText(sharedata.getString("SERVER",null));
+		id = Integer.valueOf(sharedata.getString("ID",null));
+		}
+		catch (Exception e){
+			
+		}
+		cancel = (Button)findViewById(R.id.cancel);
+		cancel.setOnClickListener(new Button.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				Settings.this.finish();
+			}
+			
+		});
 		confirm = (Button)findViewById(R.id.confirm);
 		confirm.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				
 				try{
+				SharedPreferences.Editor sharedata = getSharedPreferences("data", 0).edit();  
+				sharedata.putString("USER",user.getText().toString()); 
+				sharedata.putString("PASS", pass.getText().toString());
+				sharedata.putString("SERVER", server.getText().toString());
+				sharedata.putString("ID", String.valueOf(id));
+				sharedata.commit();
 				Intent backIntent = new Intent();
 				Bundle backBundle = new Bundle();
 				backBundle.putString("USER", user.getText().toString());
@@ -116,7 +140,6 @@ public class Settings extends Activity{
 			
 		});*/
 	}
-	
 	private void setAlarm(int t){
 		clearAlarm();
 		Intent intent = new Intent(Settings.this,AlarmReceiver.class);   
