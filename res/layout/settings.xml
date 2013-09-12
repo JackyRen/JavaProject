@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/tusername"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/username" />
+    <EditText 
+        android:id="@+id/eusername"
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+    	android:text=""/>
+    <TextView
+        android:id="@+id/tpassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/password" />
+    <EditText
+        android:id="@+id/epassword"
+        android:inputType="textPassword"
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+    	android:text=""/>
+    <TextView
+        android:id="@+id/tserver"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/server" />
+    <EditText 
+        android:id="@+id/eserver"
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+    	android:text=""/>
+    <TextView
+        android:id="@+id/alarm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/alarm" />
+    
+    <RadioGroup 
+        android:id="@+id/alarmgroup" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:checkedButton="@+id/alarm4" 
+    	android:orientation="vertical" 
+    	android:gravity="center_vertical|center_horizontal"> 
+    	<RadioButton 
+    	    android:text="@string/a1" 
+    	    android:id="@+id/alarm1" 
+      		android:layout_width="wrap_content" 
+      		android:layout_height="wrap_content">
+    	</RadioButton> 
+    	<RadioButton 
+    	    android:text="@string/a2" 
+    	    android:id="@+id/alarm2" 
+      		android:layout_width="wrap_content" 
+      		android:layout_height="wrap_content">
+    	</RadioButton> 
+    	<RadioButton 
+    	    android:text="@string/a3" 
+    	    android:id="@+id/alarm3" 
+      		android:layout_width="wrap_content" 
+      		android:layout_height="wrap_content">
+    	</RadioButton> 
+    	<RadioButton 
+    	    android:text="@string/a4" 
+    	    android:id="@+id/alarm4" 
+      		android:layout_width="wrap_content" 
+      		android:layout_height="wrap_content">
+    	</RadioButton>
+	</RadioGroup>
+
+    
+    <Button android:id="@+id/confirm"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/confirm"/>
+    <!--<Button android:id="@+id/open"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/open"/>
+    <Button android:id="@+id/close"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/close"/>-->
+
+</LinearLayout>

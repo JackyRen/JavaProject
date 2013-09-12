@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Project</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="share">Share to WeChat</string>
+    <string name="record">Record</string>
+    <string name="check">Check</string>
+    <string name="settings">Settings</string>
+    <string name="city">No Internet</string>
+    <string name="weather"></string>
+    <string name="temp"></string>
+    <string name="wind">\r\n\r\n\r\n</string>
+    <string name="Settings">Settings</string>
+    <string name="confirm">Confirm</string>
+    <string name="username">Username : </string>
+    <string name="password">Password : </string>
+    <string name="server">Server : </string>
+    <string name="alarm">Alarm Services</string>
+    <string name="a3">2 hour</string>
+    <string name="a2">60 min</string>
+    <string name="a1">30 min</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="a4">No Alarm</string>
+    <string name="Record">Record</string>
+    <string name="send">Send</string>
+
+</resources>
